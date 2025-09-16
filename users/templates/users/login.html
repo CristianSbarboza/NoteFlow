@@ -1,0 +1,26 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p style="color: red;">Login ou senha incorretos</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+        <div>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+
+        <div>
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </div>
+
+        <button type="submit">Entrar</button>
+        <input type="hidden" name="next" value="{% url 'index' %}"/>
+    </form>
+
+{% endblock content %}
