@@ -1,21 +1,30 @@
 {% extends "learning_logs/base.html" %}
 
+{% block header %}
+    
+    <div class="d-flex flex-column ">
+        <h2 class="rainbow-text">Tópicos: </h2>
+        <div>
+            <a href=" {% url 'new_topic' %} " class="btn btn-secondary">Novo tópico</a>
+        </div>
+    </div>
+
+{% endblock header %}
+
 {% block content %}
 
-    <p>Tópico: {{ topic }}</p>
-
-    <ul>
+    
+    <section class=" w-100 d-flex">
+        <ul class="d-flex flex-wrap w-100">
         {% for topic in topics %}
-            <li>
-                <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+            <li class="nav-item p-4 d-flex justify-content-center align-items-center col-12 col-sm-6 col-md-4 col-lg-3">
+            <a href="{% url 'topic' topic.id %}" class="nav-link active link-primary text-black fs-4">{{ topic }}</a>
             </li>
-            {% empty %}
-                <li>
-                    Não há tópicos adicionados
-                </li>
         {% endfor %}
-    </ul>
+        </ul>
+        
+    </section>
 
-    <a href=" {% url 'new_topic' %} ">Adicionar novo tópico</a>
+
 
 {% endblock content %}

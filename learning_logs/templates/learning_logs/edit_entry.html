@@ -1,19 +1,23 @@
 {% extends 'learning_logs/base.html' %}
-
+{% load django_bootstrap5 %}
 
 {% block content %}
     
-    <p><a href="{%  url 'topic' topic.id %}">{{ topic }}</a></p>
+    <section style="width: 100%; height: 100%;" class="d-flex justify-content-center flex-column container">
+        <h1 class="rainbow-text">
+            <a href="{%  url 'topic' topic.id %}" class="rainbow-text">{{ topic }}</a>
+        </h1>
 
-    <p>Editar anotação:</p>
+        <h3>Editar anotação:</h3>
 
-    <form action="{% url 'edit_entry' entry.id %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+        <form action="{% url 'edit_entry' entry.id %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
 
-        <button name="submit">Salvar</button>
+            <button name="submit" class="btn btn-primary">Salvar</button>
 
-    </form>
+        </form>
+    </section>
 
 {% endblock content %}
     

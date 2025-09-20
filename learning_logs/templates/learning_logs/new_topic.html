@@ -1,20 +1,24 @@
 {%  extends "learning_logs/base.html" %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 
-    <p>
-        Adicione um novo tópico:
-    </p>
+    <section  class="d-flex justify-content-center align-items-center flex-column " style="height: 50vh;" >
+        <h2>
+            Adicione um novo tópico:
+        </h2>
 
-    <form action="{% url 'new_topic' %}" method='POST'>
+        <form action="{% url 'new_topic' %}" method='POST' class="form container ">
 
-        {% csrf_token %}
+            {% csrf_token %}
 
-        {{ form.as_p }}
+            {% bootstrap_form form %}
 
-        <button name="submit">Adicionar</button>
+            <button name="submit" class="btn btn-primary">Adicionar</button>
 
-    </form>
+        </form>
+
+    </section>
 
 {% endblock content %}
 

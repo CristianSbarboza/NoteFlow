@@ -2,29 +2,39 @@
 
 {% block content %}
 
-    <p>Tópico: {{ topic }}</p>
+    <section class="d-flex flex-column gap-4 ms-4 mb-5 pb-4" >
+        <div>
+            <h1 class="rainbow-text">Tópico: {{ topic }}</h1>
 
-    <p>Anotações: </p>  
-    <p>
-        <a href="{% url 'new_entry' topic.id %}">Adicionar uma nova anotação</a>
-    </p>
+            <h3>Anotações: </h3>  
+            <div style="margin-bottom: 2rem;">
+                <a href="{% url 'new_entry' topic.id %}" class="btn btn-secondary">Nova anotação</a>
+            </div>
+        </div>
 
-    <ul>
-        {% for  entry in entries %}
+        <div >
+            <ul class="d-flex gap-4 flex-wrap">
+                {% for  entry in entries %}
 
-            <li>
-                <p>{{ entry.data_added | date:'M d, Y H:i'}}</p>
-                <p>{{ entry.text | linebreaks}}</p>
-                
-                <p><a href="{% url 'edit_entry' entry.id %}">Editar🖌️</a></p>
+                    <li class="card" style="width: 18rem;">
 
-            </li>
+                        <div class=" navbar-nav card-body">
+                            <h5 class="card-subtitle mb-2 text-muted">{{ entry.data_added | date:'M d, Y H:i'}}</h5>
+                            <p class="card-text">{{ entry.text | linebreaks}}</p>
+                        
+                            <a href="{% url 'edit_entry' entry.id %}" class="btn btn-secondary">Editar</a>
+                        </div>
 
-            {% empty %}
+                    </li>
 
-            <li>Você ainda não adicionou nenhuma anotação</li>
+                    {% empty %}
 
-        {% endfor %}
-    </ul>
+                    <li>Você ainda não adicionou nenhuma anotação</li>
+
+                {% endfor %}
+            </ul>
+        </div>
+
+    </section>
 
 {% endblock content %}

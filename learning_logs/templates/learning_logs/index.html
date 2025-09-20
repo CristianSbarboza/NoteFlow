@@ -1,5 +1,23 @@
 {% extends "learning_logs/base.html" %}
+{% load static %}
 
 {% block content %}
-    <p>Essa aplicacao ajudara a organizar seus estudos</p>
+    <section class="d-flex   flex-column flex-lg-row  align-items-center justify-content-around ">
+        <section class="d-flex  flex-column p-4" p-lg-0>
+            <div>
+                <h2 class="rainbow-text">Hora de ser mais produtivo!!!</h2>
+            </div>
+            <div>
+                <p>
+                    Com o <span style="font-weight: bold;">NoteFlow</span>, seja capaz de elevar sua produtividade a outro patamar;
+                </p>
+                <p>
+                    Organize sua vida, anote suas preferências, aprenda com seus tópicos de estudo!
+                </p>
+            </div>
+        </section>
+        <section class=" mb-5 mt-lg-0">
+            <img src="{% static 'learning_logs/imagens/capaHome.png' %}" alt="Homem fazendo anotações" class="img-fluid img-thumbnail bg-light" style="max-width: 35rem; max-height: 35rem; border: none; ">
+        </section>
+    </section>
 {% endblock content %}
