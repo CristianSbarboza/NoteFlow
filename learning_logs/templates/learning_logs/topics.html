@@ -2,27 +2,31 @@
 
 {% block header %}
     
-    <div class="d-flex flex-column ">
-        <h2 class="rainbow-text">Tópicos: </h2>
-        <div>
-            <a href=" {% url 'new_topic' %} " class="btn btn-secondary">Novo tópico</a>
-        </div>
-    </div>
+
 
 {% endblock header %}
 
 {% block content %}
 
-    
-    <section class=" w-100 d-flex">
-        <ul class="d-flex flex-wrap w-100">
-        {% for topic in topics %}
-            <li class="nav-item p-4 d-flex justify-content-center align-items-center col-12 col-sm-6 col-md-4 col-lg-3">
-            <a href="{% url 'topic' topic.id %}" class="nav-link active link-primary text-black fs-4">{{ topic }}</a>
-            </li>
-        {% endfor %}
-        </ul>
+    <section class="d-flex justify-content-between flex-column m-4">
+        <section class="d-flex flex-column  ">
+            <h2 class="rainbow-text">Tópicos: </h2>
+            <div>
+                <a href=" {% url 'new_topic' %} " class="btn btn-secondary">Novo tópico</a>
+            </div>
+        </section>
         
+        <section class=" w-100 d-flex">
+
+            <ul class="d-flex flex-wrap w-100">
+            {% for topic in topics %}
+                <li class="nav-item p-4 d-flex justify-content-center align-items-center col-12 col-sm-6 col-md-4 col-lg-3">
+                <a href="{% url 'topic' topic.id %}" class="nav-link active link-primary text-black fs-4">{{ topic }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            
+        </section>
     </section>
 
 

@@ -79,22 +79,22 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 import dj_database_url
 import os
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'learning_db',
-#         'USER': 'cristian',
-#         'PASSWORD': '@tsukBS2',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')  # Render vai fornecer DATABASE_URL automaticamente
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'learning_db',
+        'USER': 'cristian',
+        'PASSWORD': '@tsukBS2',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL')  # Render vai fornecer DATABASE_URL automaticamente
+#     )
+# }
 
 
 
